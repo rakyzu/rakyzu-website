@@ -1,25 +1,9 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import SkillsSection from "../components/SkillsSection";
-import ProjectsSection from "../components/ProjectsSection";
-import ExperienceTimeline from "../components/ExperienceTimeline";
-import Guestbook from "../components/Guestbook";
-import ContactForm from "../components/ContactForm";
-import Footer from "../components/Footer";
+import App from "../components/App";
 ---
 
 <Layout title="rakyzu — Developer & Designer Portfolio">
-  <Navbar client:load />
-  <Hero client:load />
-  <About client:load />
-  <SkillsSection client:load />
-  <ProjectsSection client:load />
-  <ExperienceTimeline client:load />
-  <Guestbook client:load />
-  <ContactForm client:load />
-  <Footer client:load />
+  <App client:load />
 </Layout>

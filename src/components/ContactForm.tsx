@@ -2,8 +2,10 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { useCallback, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import Toast from "./Toast";
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function ContactForm() {
+  const { t } = useLang();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [token, setToken] = useState<string | null>(null);
@@ -50,52 +52,52 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-zinc-900/30">
+    <section id="contact" className="py-24 bg-bg-sec">
       <div className="max-w-xl mx-auto px-4">
         <ScrollReveal>
-          <h2 className="text-3xl font-bold mb-2">Contact</h2>
-          <p className="text-zinc-500 text-sm mb-8">Get in touch</p>
+          <h2 className="text-3xl font-bold mb-2 text-fg">{t.contact.title}</h2>
+          <p className="text-fg-muted text-sm mb-8">{t.contact.subtitle}</p>
         </ScrollReveal>
 
         <ScrollReveal>
           <div className="space-y-5">
             <div>
-              <label htmlFor="name" className="sr-only">Name</label>
+              <label htmlFor="name" className="sr-only">{t.contact.name}</label>
               <input
                 id="name"
                 value={form.name}
                 onChange={(e) => handleChange("name", e.target.value)}
-                placeholder="Your name"
+                placeholder={t.contact.name}
                 maxLength={100}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-zinc-500 transition-colors"
+                className="w-full bg-bg-sec border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-fg-sec transition-colors placeholder:text-fg-muted"
               />
               {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
             </div>
 
             <div>
-              <label htmlFor="email" className="sr-only">Email</label>
+              <label htmlFor="email" className="sr-only">{t.contact.email}</label>
               <input
                 id="email"
                 type="email"
                 value={form.email}
                 onChange={(e) => handleChange("email", e.target.value)}
-                placeholder="Your email"
+                placeholder={t.contact.email}
                 maxLength={254}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-zinc-500 transition-colors"
+                className="w-full bg-bg-sec border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-fg-sec transition-colors placeholder:text-fg-muted"
               />
               {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
             </div>
 
             <div>
-              <label htmlFor="message" className="sr-only">Message</label>
+              <label htmlFor="message" className="sr-only">{t.contact.message}</label>
               <textarea
                 id="message"
                 value={form.message}
                 onChange={(e) => handleChange("message", e.target.value)}
-                placeholder="Your message"
+                placeholder={t.contact.message}
                 maxLength={5000}
                 rows={5}
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-zinc-500 transition-colors resize-none"
+                className="w-full bg-bg-sec border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-fg-sec transition-colors resize-none placeholder:text-fg-muted"
               />
               {errors.message && <p className="text-xs text-red-400 mt-1">{errors.message}</p>}
             </div>
@@ -113,9 +115,9 @@ export default function ContactForm() {
               <button
                 onClick={submit}
                 disabled={sending || !token}
-                className="px-6 py-2.5 bg-zinc-100 text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-6 py-2.5 bg-fg text-bg rounded-lg text-sm font-medium hover:bg-fg-sec transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {sending ? "Sending..." : "Send Message"}
+                {sending ? "Sending..." : t.contact.send}
               </button>
             </div>
           </div>

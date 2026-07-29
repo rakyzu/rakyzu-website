@@ -1,37 +1,57 @@
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { useLang } from "../i18n/LanguageProvider";
+import { languages, type Lang } from "../i18n/index";
 
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Guestbook", href: "#guestbook" },
-  { label: "Contact", href: "#contact" },
-];
+const navKeys = ["about", "skills", "projects", "experience", "guestbook", "contact"] as const;
 
 export default function Navbar() {
+  const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-bg/80 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" className="text-lg font-bold tracking-tight">
+        <a href="#" className="text-lg font-bold tracking-tight text-fg">
           rakyzu
         </a>
 
-        <div className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-zinc-100 transition-colors">
-              {l.label}
+        <div className="hidden md:flex items-center gap-6 text-sm text-fg-sec">
+          {navKeys.map((key) => (
+            <a key={key} href={`#${key}`} className="hover:text-fg transition-colors">
+              {t.nav[key]}
             </a>
           ))}
+          <div className="relative">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="px-2 py-1 rounded text-xs uppercase tracking-wider border border-border hover:bg-bg-elv transition-colors"
+            >
+              {lang}
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-1 bg-bg border border-border rounded-md shadow-lg py-1 min-w-[120px]">
+                {languages.map((l) => (
+                  <button
+                    key={l.value}
+                    onClick={() => { setLang(l.value as Lang); setLangOpen(false); }}
+                    className={`block w-full text-left px-3 py-1.5 text-xs transition-colors ${
+                      lang === l.value ? "text-fg bg-bg-sec" : "text-fg-sec hover:text-fg hover:bg-bg-elv"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <ThemeToggle />
         </div>
 
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
-          <button onClick={() => setOpen(!open)} aria-label="Menu" className="p-2">
+          <button onClick={() => setOpen(!open)} aria-label="Menu" className="p-2 text-fg-sec">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {open ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -44,17 +64,35 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-zinc-800 bg-zinc-950 px-4 py-4 space-y-3 text-sm text-zinc-400">
-          {links.map((l) => (
+        <div className="md:hidden border-t border-border bg-bg px-4 py-4 space-y-3 text-sm text-fg-sec">
+          {navKeys.map((key) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={key}
+              href={`#${key}`}
               onClick={() => setOpen(false)}
-              className="block hover:text-zinc-100 transition-colors"
+              className="block hover:text-fg transition-colors"
             >
-              {l.label}
+              {t.nav[key]}
             </a>
           ))}
+          <div className="pt-2 border-t border-border">
+            <p className="text-xs text-fg-muted mb-2 uppercase tracking-wider">Language</p>
+            <div className="flex gap-2">
+              {languages.map((l) => (
+                <button
+                  key={l.value}
+                  onClick={() => { setLang(l.value as Lang); }}
+                  className={`px-2 py-1 text-xs rounded border transition-colors ${
+                    lang === l.value
+                      ? "border-fg-sec text-fg bg-bg-sec"
+                      : "border-border text-fg-sec hover:text-fg hover:bg-bg-elv"
+                  }`}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </nav>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
+import { useLang } from "../i18n/LanguageProvider";
 
 interface Project {
   id: number;
@@ -14,6 +15,7 @@ interface Project {
 }
 
 export default function ProjectsSection() {
+  const { t } = useLang();
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -33,8 +35,8 @@ export default function ProjectsSection() {
     <section id="projects" className="py-24">
       <div className="max-w-5xl mx-auto px-4">
         <ScrollReveal>
-          <h2 className="text-3xl font-bold mb-2">Projects</h2>
-          <p className="text-zinc-500 text-sm mb-8">Things I've built</p>
+          <h2 className="text-3xl font-bold mb-2 text-fg">{t.projects.title}</h2>
+          <p className="text-fg-muted text-sm mb-8">{t.projects.subtitle}</p>
         </ScrollReveal>
 
         {allTags.length > 0 && (
@@ -43,7 +45,7 @@ export default function ProjectsSection() {
               <button
                 onClick={() => setActiveTag(null)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                  activeTag === null ? "bg-zinc-100 text-zinc-900" : "bg-zinc-800 text-zinc-400 hover:text-zinc-200"
+                  activeTag === null ? "bg-bg text-fg" : "bg-bg-elv text-fg-sec hover:text-fg"
                 }`}
               >
                 All
@@ -53,7 +55,7 @@ export default function ProjectsSection() {
                   key={tag}
                   onClick={() => setActiveTag(tag)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    activeTag === tag ? "bg-zinc-100 text-zinc-900" : "bg-zinc-800 text-zinc-400 hover:text-zinc-200"
+                    activeTag === tag ? "bg-bg text-fg" : "bg-bg-elv text-fg-sec hover:text-fg"
                   }`}
                 >
                   {tag}
@@ -64,9 +66,9 @@ export default function ProjectsSection() {
         )}
 
         {loading ? (
-          <p className="text-zinc-600 text-sm">Loading...</p>
+          <p className="text-fg-muted text-sm">{t.projects.loading}</p>
         ) : projects.length === 0 ? (
-          <p className="text-zinc-600 text-sm">No projects yet.</p>
+          <p className="text-fg-muted text-sm">No projects yet.</p>
         ) : (
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, i) => (
@@ -89,9 +91,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <ScrollReveal>
-      <div className="border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-600 transition-colors group">
+      <div className="border border-border rounded-xl overflow-hidden hover:border-fg-sec transition-colors group">
         {imageUrl && (
-          <div className="aspect-video bg-zinc-900 overflow-hidden">
+          <div className="aspect-video bg-bg-sec overflow-hidden">
             <img
               src={imageUrl}
               alt={project.title}
@@ -102,22 +104,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         )}
         <div className="p-5">
           <h3 className="font-semibold mb-1">{project.title}</h3>
-          <p className="text-sm text-zinc-400 mb-3 line-clamp-2">{project.description}</p>
+          <p className="text-sm text-fg-sec mb-3 line-clamp-2">{project.description}</p>
           {tags.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mb-3">
               {tags.map((t) => (
-                <span key={t} className="px-2 py-0.5 bg-zinc-800 rounded text-xs text-zinc-400">{t}</span>
+                <span key={t} className="px-2 py-0.5 bg-bg-elv rounded text-xs text-fg-sec">{t}</span>
               ))}
             </div>
           )}
-          <div className="flex items-center gap-3 text-xs text-zinc-500">
+          <div className="flex items-center gap-3 text-xs text-fg-muted">
             {project.demo_url && (
-              <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">
+              <a href={project.demo_url} target="_blank" rel="noopener noreferrer" className="hover:text-fg-sec transition-colors">
                 Live Demo →
               </a>
             )}
             {project.repo_url && (
-              <a href={project.repo_url} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">
+              <a href={project.repo_url} target="_blank" rel="noopener noreferrer" className="hover:text-fg-sec transition-colors">
                 Source →
               </a>
             )}

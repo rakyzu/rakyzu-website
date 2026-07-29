@@ -11,5 +11,5 @@ binding = "ASSETS_BUCKET"
 bucket_name = "rakyzu-assets"
 
 send_email = [
-  { name = "EMAIL" }
+  { name = "EMAIL", address = "zulhampratama@rakyzu.my.id" }
 ]

@@ -2,6 +2,7 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { useCallback, useEffect, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import Toast from "./Toast";
+import { useLang } from "../i18n/LanguageProvider";
 
 interface Entry {
   id: number;
@@ -11,6 +12,7 @@ interface Entry {
 }
 
 export default function Guestbook() {
+  const { t } = useLang();
   const [entries, setEntries] = useState<Entry[]>([]);
   const [name, setName] = useState("");
   const [note, setNote] = useState("");
@@ -55,26 +57,26 @@ export default function Guestbook() {
     <section id="guestbook" className="py-24">
       <div className="max-w-3xl mx-auto px-4">
         <ScrollReveal>
-          <h2 className="text-3xl font-bold mb-2">Guestbook</h2>
-          <p className="text-zinc-500 text-sm mb-8">Leave a note</p>
+          <h2 className="text-3xl font-bold mb-2 text-fg">{t.guestbook.title}</h2>
+          <p className="text-fg-muted text-sm mb-8">{t.guestbook.subtitle}</p>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="border border-zinc-800 rounded-lg p-5 mb-10 space-y-4">
+          <div className="border border-border rounded-lg p-5 mb-10 space-y-4">
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
+              placeholder={t.guestbook.name}
               maxLength={100}
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-zinc-500 transition-colors"
+              className="w-full bg-bg-sec border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-fg-sec transition-colors placeholder:text-fg-muted"
             />
             <textarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
-              placeholder="Write something..."
+              placeholder={t.guestbook.message}
               maxLength={2000}
               rows={3}
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-zinc-500 transition-colors resize-none"
+              className="w-full bg-bg-sec border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-fg-sec transition-colors resize-none placeholder:text-fg-muted"
             />
             <div className="flex items-center justify-between">
               <div className="scale-90 origin-left">
@@ -89,9 +91,9 @@ export default function Guestbook() {
               <button
                 onClick={submit}
                 disabled={sending || !name.trim() || !note.trim() || !token}
-                className="px-5 py-2 bg-zinc-100 text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-200 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="px-5 py-2 bg-fg text-bg rounded-lg text-sm font-medium hover:bg-fg-sec transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {sending ? "Signing..." : "Sign"}
+                {sending ? "Signing..." : t.guestbook.sign}
               </button>
             </div>
           </div>
@@ -100,12 +102,12 @@ export default function Guestbook() {
         <div className="space-y-4">
           {entries.map((e) => (
             <ScrollReveal key={e.id}>
-              <div className="border border-zinc-800 rounded-lg p-4">
+              <div className="border border-border rounded-lg p-4">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-sm font-medium">{e.name}</span>
-                  <span className="text-xs text-zinc-600">{new Date(e.created_at).toLocaleDateString()}</span>
+                  <span className="text-xs text-fg-muted">{new Date(e.created_at).toLocaleDateString()}</span>
                 </div>
-                <p className="text-sm text-zinc-400">{e.note}</p>
+                <p className="text-sm text-fg-sec">{e.note}</p>
               </div>
             </ScrollReveal>
           ))}

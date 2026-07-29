@@ -10,7 +10,7 @@ export async function sendNotification(
     if (!emailBinding) return false;
 
     await emailBinding.send({
-      to: "rakyzu@rakyzu.my.id",
+      to: "zulhampratama@rakyzu.my.id",
       from: { email: "noreply@rakyzu.my.id", name: "Portfolio Contact" },
       subject: `New message from ${name}`,
       html: `<p><strong>From:</strong> ${name} (${email})</p><p>${message}</p>`,

@@ -20,9 +20,9 @@ export default function Toast({ message, type, onClose }: ToastProps) {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 px-5 py-3 rounded-lg shadow-lg transition-all duration-300 text-sm font-medium ${
+      className={`fixed bottom-6 right-6 z-50 px-5 py-3 rounded-lg shadow-lg transition-all duration-300 text-sm font-medium border border-border ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      } ${type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"}`}
+      } bg-bg-elv text-fg`}
     >
       {message}
     </div>

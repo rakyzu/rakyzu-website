@@ -11,13 +11,14 @@ const ogImg = ogImage ?? `${siteUrl}/assets/og/default.png`;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -42,7 +43,7 @@ const ogImg = ogImage ?? `${siteUrl}/assets/og/default.png`;
       })();
     </script>
   </head>
-  <body class="bg-zinc-950 text-zinc-100 antialiased">
+  <body class="antialiased">
     <slot />
   </body>
 </html>
