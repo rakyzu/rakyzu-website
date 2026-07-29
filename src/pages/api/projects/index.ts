@@ -5,7 +5,7 @@ export const GET: APIRoute = async (ctx) => {
   const tag = ctx.url.searchParams.get("tag");
 
   try {
-    const db = getDb(ctx);
+    const db = getDb();
 
     let rows;
     if (tag) {

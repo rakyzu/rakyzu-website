@@ -26,13 +26,13 @@ export const POST: APIRoute = async (ctx) => {
   const safeMessage = sanitize(message.trim());
 
   try {
-    const db = getDb(ctx);
+    const db = getDb();
     await db
       .prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)")
       .bind(safeName, safeEmail, safeMessage)
       .run();
 
-    sendNotification(ctx, safeName, safeEmail, safeMessage);
+    sendNotification(safeName, safeEmail, safeMessage);
 
     return Response.json({ success: true });
   } catch (err) {

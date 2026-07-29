@@ -9,7 +9,7 @@ export const POST: APIRoute = async (ctx) => {
   }
 
   try {
-    const db = getDb(ctx);
+    const db = getDb();
     await db
       .prepare("UPDATE projects SET view_count = view_count + 1 WHERE id = ?")
       .bind(Number(id))

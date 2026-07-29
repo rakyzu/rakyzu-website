@@ -63,7 +63,7 @@ export const POST: APIRoute = async (ctx) => {
   const safeNote = sanitize(note.trim());
 
   try {
-    const db = getDb(ctx);
+    const db = getDb();
     await db
       .prepare("INSERT INTO guestbook (name, note) VALUES (?, ?)")
       .bind(safeName, safeNote)

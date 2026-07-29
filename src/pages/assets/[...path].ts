@@ -1,7 +1,5 @@
+import { env } from "cloudflare:workers";
 import type { APIRoute } from "astro";
-import { getBucket } from "../api/_lib/db";
-
-const R2_URL = "https://pub-<your-r2-public-bucket-url>";
 
 export const GET: APIRoute = async (ctx) => {
   const path = ctx.params.path;
@@ -17,7 +15,7 @@ export const GET: APIRoute = async (ctx) => {
   if (cached) return cached;
 
   try {
-    const bucket = getBucket(ctx);
+    const bucket = env.ASSETS_BUCKET as import("@cloudflare/workers-types").R2Bucket;
     const object = await bucket.get(path);
 
     if (!object) {
@@ -31,10 +29,11 @@ export const GET: APIRoute = async (ctx) => {
 
     const body = await object.blob();
     const response = new Response(body, { headers });
-    ctx.locals.runtime?.ctx?.waitUntil(cache.put(cacheKey, response.clone()));
+    ctx.locals.cfContext?.waitUntil?.(cache.put(cacheKey, response.clone()));
     return response;
   } catch (err) {
-    console.error("Asset proxy error:", err);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("Asset proxy error:", msg, err);
+    return Response.json({ error: "Internal server error", detail: msg }, { status: 500 });
   }
 };

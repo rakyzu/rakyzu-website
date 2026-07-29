@@ -1,14 +1,12 @@
-import type { APIContext } from "astro";
 import { getEmail } from "./db";
 
 export async function sendNotification(
-  ctx: APIContext,
   name: string,
   email: string,
   message: string,
 ): Promise<boolean> {
   try {
-    const emailBinding = getEmail(ctx);
+    const emailBinding = getEmail();
     if (!emailBinding) return false;
 
     await emailBinding.send({
