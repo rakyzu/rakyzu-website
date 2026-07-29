@@ -8,5 +8,8 @@ database_name = "rakyzu-db"
 database_id = "4faee161-5d2e-4b09-b3ff-255159bbac96"
 
 [[r2_buckets]]
-binding = "STORAGE"
+binding = "ASSETS_BUCKET"
 bucket_name = "rakyzu-assets"
+
+# NOTE: Email binding (EMAIL) will be added via Cloudflare Pages Dashboard
+# Send email binding can't be set in wrangler.toml for Pages projects.
