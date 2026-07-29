@@ -8,30 +8,43 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/0 via-zinc-900/0 to-zinc-950 pointer-events-none" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-glow rounded-full blur-3xl pointer-events-none" />
 
-      <div className="text-center relative z-10 px-4">
-        <p className="text-sm text-fg-muted mb-4 font-mono">{t.hero.greeting}</p>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-fg mb-4">
-          {t.hero.title}
-        </h1>
-        <p className="text-xl md:text-2xl text-fg-sec mb-8">
-          {t.hero.subtitle}
-        </p>
-        <p className="text-fg-muted max-w-md mx-auto mb-10 text-sm">
-          {t.hero.description}
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <a
-            href="#projects"
-            className="px-6 py-3 bg-fg text-bg rounded-lg font-medium text-sm hover:bg-fg-sec transition-colors"
-          >
-            {t.hero.cta1}
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-border text-fg-sec rounded-lg text-sm font-medium hover:bg-bg-sec transition-colors"
-          >
-            {t.hero.cta2}
-          </a>
+      <div className="max-w-6xl mx-auto px-4 w-full relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-center md:text-left">
+            <p className="text-sm text-fg-muted mb-4 font-mono">{t.hero.greeting}</p>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-fg mb-4">
+              {t.hero.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-fg-sec mb-8">
+              {t.hero.subtitle}
+            </p>
+            <p className="text-fg-muted max-w-md mb-10 text-sm mx-auto md:mx-0">
+              {t.hero.description}
+            </p>
+            <div className="flex items-center gap-4 justify-center md:justify-start">
+              <a
+                href="#projects"
+                className="px-6 py-3 bg-fg text-bg rounded-lg font-medium text-sm hover:bg-fg-sec transition-colors"
+              >
+                {t.hero.cta1}
+              </a>
+              <a
+                href="#contact"
+                className="px-6 py-3 border border-border text-fg-sec rounded-lg text-sm font-medium hover:bg-bg-sec transition-colors"
+              >
+                {t.hero.cta2}
+              </a>
+            </div>
+          </div>
+
+          <div className="hidden md:flex items-center justify-center">
+            <img
+              src="/assets/og/hero.png"
+              alt="Hero illustration"
+              className="w-full max-w-md"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
     </section>
