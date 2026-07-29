@@ -40,16 +40,16 @@ export default function ExperienceTimeline() {
         </ScrollReveal>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
 
           {experiences.map((exp, i) => (
             <ScrollReveal key={i}>
-              <div className={`relative flex items-start gap-6 mb-12 md:mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+              <div className={`relative flex mb-12 md:mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                 <div className="hidden md:block flex-1" />
 
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-border -translate-x-1/2 mt-1.5 ring-4 ring-bg" />
+                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-border md:-translate-x-1/2 mt-1.5 ring-4 ring-bg-sec z-10" />
 
-                <div className="flex-1 pl-10 md:pl-0">
+                <div className="w-full md:flex-1 pl-10 md:pl-0">
                   <div className="border border-border rounded-lg p-5">
                     <span className="text-xs text-fg-muted font-mono">{exp.period}</span>
                     <h3 className="font-semibold mt-1 text-fg">{exp.role}</h3>
