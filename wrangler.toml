@@ -3,9 +3,9 @@ compatibility_date = "2026-07-29"
 pages_build_output_dir = "dist"
 
 [[d1_databases]]
-binding = "DB"
+binding = "rakyzu_db"
 database_name = "rakyzu-db"
-database_id = ""
+database_id = "4faee161-5d2e-4b09-b3ff-255159bbac96"
 
 [[r2_buckets]]
 binding = "STORAGE"
