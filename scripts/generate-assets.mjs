@@ -221,11 +221,11 @@ const avatarSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"
 
 // ─── Render to PNG ────────────────────────────────────────────────
 console.log("Rendering hero illustration...");
-await sharp(Buffer.from(heroSvg)).resize(800, 600).png().toFile("dist/assets/hero.png");
+await sharp(Buffer.from(heroSvg)).resize(1920, 1080).png().toFile("dist/assets/hero.png");
 
 console.log("Rendering profile avatar...");
 await sharp(Buffer.from(avatarSvg)).resize(400, 400).png().toFile("dist/assets/profile.png");
 
 console.log("✅ Images generated:");
-console.log("  dist/assets/hero.png   (800x600)");
+console.log("  dist/assets/hero.png   (1920x1080)");
 console.log("  dist/assets/profile.png (400x400)");
