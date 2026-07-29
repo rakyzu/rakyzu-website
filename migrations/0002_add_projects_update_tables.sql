@@ -1,4 +1,5 @@
--- Rakyzu Portfolio — D1 Database Schema
+-- Migration number: 0002 	 2026-07-29
+-- Add projects table, create messages table, rename guestbook.message → note
 
 CREATE TABLE IF NOT EXISTS projects (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -20,9 +21,18 @@ CREATE TABLE IF NOT EXISTS messages (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
-CREATE TABLE IF NOT EXISTS guestbook (
+CREATE TABLE IF NOT EXISTS guestbook_new (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
   note TEXT NOT NULL DEFAULT '',
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+
+INSERT INTO guestbook_new (id, name, note, created_at)
+  SELECT id, name, message, created_at FROM guestbook;
+
+DROP TABLE IF EXISTS guestbook;
+
+ALTER TABLE guestbook_new RENAME TO guestbook;
+
+DROP TABLE IF EXISTS contact_messages;
