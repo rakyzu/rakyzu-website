@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       <img
-        src="/assets/og/hero.png"
+        src="/assets/og/hero-bg.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

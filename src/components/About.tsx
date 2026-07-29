@@ -15,7 +15,7 @@ export default function About() {
           <ScrollReveal>
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden mx-auto md:mx-0">
               <img
-                src="/assets/og/profile.png"
+                src="/assets/og/profile-avatar.png"
                 alt="rakyzu"
                 className="w-full h-full object-cover"
                 loading="lazy"
