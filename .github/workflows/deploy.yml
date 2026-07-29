@@ -30,6 +30,16 @@ jobs:
           TURNSTILE_SECRET: ${{ secrets.TURNSTILE_SECRET }}
           PUBLIC_SITE_URL: ${{ secrets.PUBLIC_SITE_URL }}
 
+      - name: Fix wrangler.json bindings
+        run: node -e "
+          const j = require('./dist/server/wrangler.json');
+          if (Array.isArray(j.send_email) && j.send_email.length === 0 && j.r2_buckets?.[0]?.send_email) {
+            j.send_email = j.r2_buckets[0].send_email;
+            delete j.r2_buckets[0].send_email;
+          }
+          require('fs').writeFileSync('./dist/server/wrangler.json', JSON.stringify(j, null, 2));
+        "
+
       - run: npx wrangler deploy --config dist/server/wrangler.json
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
