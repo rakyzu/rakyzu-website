@@ -1,6 +1,5 @@
 name = "rakyzu-website"
 compatibility_date = "2026-07-29"
-pages_build_output_dir = "dist"
 
 [[d1_databases]]
 binding = "rakyzu_db"
@@ -11,5 +10,6 @@ database_id = "4faee161-5d2e-4b09-b3ff-255159bbac96"
 binding = "ASSETS_BUCKET"
 bucket_name = "rakyzu-assets"
 
-# NOTE: Email binding (EMAIL) will be added via Cloudflare Pages Dashboard
-# Send email binding can't be set in wrangler.toml for Pages projects.
+send_email = [
+  { name = "EMAIL" }
+]
