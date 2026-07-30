@@ -5,6 +5,39 @@ import { languages, type Lang } from "../i18n/index";
 
 const navKeys = ["about", "skills", "projects", "experience", "guestbook", "contact"] as const;
 
+function LangToggle({ lang, setLang, langOpen, setLangOpen }: {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  langOpen: boolean;
+  setLangOpen: (v: boolean) => void;
+}) {
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setLangOpen(!langOpen)}
+        className="px-1.5 py-1 rounded-md text-xs uppercase tracking-wider bg-bg-elv hover:bg-bg-sec transition-colors text-fg-sec cursor-pointer"
+      >
+        {lang}
+      </button>
+      {langOpen && (
+        <div className="absolute right-0 top-full mt-1 bg-bg border border-border rounded-md shadow-lg py-1 min-w-[120px] z-10">
+          {languages.map((l) => (
+            <button
+              key={l.value}
+              onClick={() => { setLang(l.value as Lang); setLangOpen(false); }}
+              className={`block w-full text-left px-3 py-1.5 text-xs transition-colors ${
+                lang === l.value ? "text-fg bg-bg-sec" : "text-fg-sec hover:text-fg hover:bg-bg-elv"
+              }`}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Navbar() {
   const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
@@ -23,34 +56,13 @@ export default function Navbar() {
               {t.nav[key]}
             </a>
           ))}
-          <div className="relative">
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="text-xs uppercase tracking-wider hover:text-fg transition-colors cursor-pointer"
-            >
-              {lang}
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-1 bg-bg border border-border rounded-md shadow-lg py-1 min-w-[120px]">
-                {languages.map((l) => (
-                  <button
-                    key={l.value}
-                    onClick={() => { setLang(l.value as Lang); setLangOpen(false); }}
-                    className={`block w-full text-left px-3 py-1.5 text-xs transition-colors ${
-                      lang === l.value ? "text-fg bg-bg-sec" : "text-fg-sec hover:text-fg hover:bg-bg-elv"
-                    }`}
-                  >
-                    {l.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+          <LangToggle lang={lang} setLang={setLang} langOpen={langOpen} setLangOpen={setLangOpen} />
           <ThemeToggle />
         </div>
 
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
+          <LangToggle lang={lang} setLang={setLang} langOpen={langOpen} setLangOpen={setLangOpen} />
           <button onClick={() => setOpen(!open)} aria-label="Menu" className="p-2 text-fg-sec">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {open ? (
@@ -75,24 +87,6 @@ export default function Navbar() {
               {t.nav[key]}
             </a>
           ))}
-          <div className="pt-2 border-t border-border">
-            <p className="text-xs text-fg-muted mb-2 uppercase tracking-wider">Language</p>
-            <div className="flex gap-2">
-              {languages.map((l) => (
-                <button
-                  key={l.value}
-                  onClick={() => { setLang(l.value as Lang); }}
-                  className={`px-2 py-1 text-xs rounded border transition-colors ${
-                    lang === l.value
-                      ? "border-fg-sec text-fg bg-bg-sec"
-                      : "border-border text-fg-sec hover:text-fg hover:bg-bg-elv"
-                  }`}
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       )}
     </nav>
