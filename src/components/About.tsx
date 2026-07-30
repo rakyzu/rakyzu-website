@@ -24,11 +24,11 @@ export default function About() {
 
         <div className="grid md:grid-cols-[240px_1fr] gap-10 items-start">
           <ScrollReveal>
-            <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden mx-auto md:mx-0">
+            <div className="flex justify-center md:justify-start">
               <img
                 src="/assets/og/ProfileImage.png"
                 alt="rakyzu"
-                className="w-full h-full object-cover"
+                className="w-48 h-48 md:w-56 md:h-56"
                 loading="lazy"
               />
             </div>
