@@ -28,7 +28,7 @@ export default function About() {
               <img
                 src="/assets/og/ProfileImage.png"
                 alt="rakyzu"
-                className="w-48 h-48 md:w-56 md:h-56"
+                className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover"
                 loading="lazy"
               />
             </div>
