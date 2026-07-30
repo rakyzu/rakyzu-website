@@ -33,6 +33,56 @@
   --hero-dot: oklch(0.45 0 0 / 0.12);
   --hero-polygon: oklch(0.6 0.15 250 / 0.08);
   --hero-grid-opacity: 0.06;
+
+  --frame-bg: oklch(0.97 0 0);
+  --frame-line: oklch(0.5 0 0 / 0.12);
+  --frame-dot: oklch(0.3 0 0 / 0.3);
+  --frame-orange: oklch(0.6 0.15 260 / 0.5);
+
+  --fp-s1: oklch(0.72 0.06 260 / 0.22);
+  --fp-s2: oklch(0.67 0.05 260 / 0.17);
+  --fp-s3: oklch(0.62 0.04 260 / 0.12);
+  --fp-s4: oklch(0.57 0.03 260 / 0.08);
+
+  --fp-t1: oklch(0.68 0.04 220 / 0.15);
+  --fp-t2: oklch(0.63 0.03 220 / 0.11);
+  --fp-t3: oklch(0.58 0.02 220 / 0.07);
+
+  --fp-g1: oklch(0.6 0.15 270 / 0.7);
+  --fp-g2: oklch(0.55 0.12 270 / 0.65);
+  --fp-g3: oklch(0.5 0.1 270 / 0.6);
+
+  --fp-gg1: oklch(0.6 0.15 270 / 0.7);
+  --fp-gg2: oklch(0.55 0.12 265 / 0.55);
+  --fp-gg3: oklch(0.48 0.08 260 / 0.35);
+  --fp-gg4: oklch(0.4 0.04 250 / 0.2);
+  --fp-gg5: oklch(0.32 0.02 240 / 0.12);
+
+  --fp-w2: oklch(0.55 0.14 275 / 0.65);
+  --fp-w3: oklch(0.5 0.12 280 / 0.6);
+
+  --fp-c1: oklch(0.6 0.15 270 / 0.7);
+  --fp-c2: oklch(0.57 0.13 268 / 0.63);
+  --fp-c3: oklch(0.52 0.1 265 / 0.5);
+  --fp-c4: oklch(0.47 0.07 262 / 0.38);
+  --fp-c5: oklch(0.42 0.05 258 / 0.28);
+  --fp-c6: oklch(0.37 0.03 255 / 0.2);
+  --fp-c7: oklch(0.33 0.02 252 / 0.15);
+  --fp-c8: oklch(0.3 0.015 248 / 0.12);
+  --fp-c9: oklch(0.28 0.01 245 / 0.1);
+  --fp-c10: oklch(0.26 0.005 242 / 0.08);
+  --fp-c11: oklch(0.24 0 240 / 0.06);
+
+  --fp-r1: oklch(0.24 0 240 / 0.06);
+  --fp-r2: oklch(0.25 0.005 242 / 0.08);
+  --fp-r3: oklch(0.28 0.01 245 / 0.1);
+  --fp-r4: oklch(0.32 0.015 248 / 0.14);
+  --fp-r5: oklch(0.36 0.03 252 / 0.2);
+  --fp-r6: oklch(0.42 0.05 255 / 0.28);
+  --fp-r7: oklch(0.48 0.08 258 / 0.38);
+  --fp-r8: oklch(0.54 0.11 262 / 0.5);
+  --fp-r9: oklch(0.58 0.14 265 / 0.63);
+  --fp-r10: oklch(0.6 0.15 270 / 0.7);
 }
 
 .dark {
@@ -53,6 +103,56 @@
   --hero-dot: oklch(0.7 0.1 260 / 0.2);
   --hero-polygon: oklch(0.7 0.12 260 / 0.12);
   --hero-grid-opacity: 0.08;
+
+  --frame-bg: #000000;
+  --frame-line: #969696;
+  --frame-dot: #ffffff;
+  --frame-orange: #FF7E3D;
+
+  --fp-s1: #2F3E41;
+  --fp-s2: #273132;
+  --fp-s3: #1E2422;
+  --fp-s4: #1B1F1C;
+
+  --fp-t1: #5C5A44;
+  --fp-t2: #3F4541;
+  --fp-t3: #313C40;
+
+  --fp-g1: #FFD24D;
+  --fp-g2: #F6BE56;
+  --fp-g3: #F2B45A;
+
+  --fp-gg1: #FFD24D;
+  --fp-gg2: #EBC34D;
+  --fp-gg3: #B69D4D;
+  --fp-gg4: #625F4E;
+  --fp-gg5: #44494E;
+
+  --fp-w2: #FFBE56;
+  --fp-w3: #FFB45A;
+
+  --fp-c1: #FFD24D;
+  --fp-c2: #F7CC4C;
+  --fp-c3: #CEAE4A;
+  --fp-c4: #A89348;
+  --fp-c5: #887B45;
+  --fp-c6: #6C6744;
+  --fp-c7: #565742;
+  --fp-c8: #454B41;
+  --fp-c9: #3A4241;
+  --fp-c10: #333D40;
+  --fp-c11: #313C40;
+
+  --fp-r1: #313C40;
+  --fp-r2: #333E40;
+  --fp-r3: #3C4441;
+  --fp-r4: #4A4E42;
+  --fp-r5: #5E5D43;
+  --fp-r6: #786F44;
+  --fp-r7: #988746;
+  --fp-r8: #BDA249;
+  --fp-r9: #E8C14C;
+  --fp-r10: #FFD24D;
 }
 
 * { scroll-behavior: smooth; }

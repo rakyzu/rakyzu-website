@@ -1,4 +1,5 @@
 import { useLang } from "../i18n/LanguageProvider";
+import HeroFrame from "./HeroFrame";
 
 export default function Hero() {
   const { t } = useLang();
@@ -62,6 +63,10 @@ export default function Hero() {
         <circle cx="1400" cy="540" r="350" fill="var(--hero-accent-1)" filter="url(#hBlur1)" className="hero-breathe" />
         <circle cx="500" cy="800" r="280" fill="var(--hero-accent-2)" filter="url(#hBlur2)" className="hero-breathe" />
       </svg>
+
+      <div className="absolute inset-0 pointer-events-none opacity-[0.35] dark:opacity-[0.45] mix-blend-screen dark:mix-blend-screen">
+        <HeroFrame />
+      </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/60 to-zinc-950/40 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-transparent to-zinc-950/80 pointer-events-none" />
