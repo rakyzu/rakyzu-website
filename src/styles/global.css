@@ -26,14 +26,6 @@
   --overlay: oklch(0 0 0 / 0.05);
   --glow: oklch(0.8 0.05 250 / 0.15);
 
-  --hero-bg: oklch(0.97 0 0);
-  --hero-accent-1: oklch(0.6 0.15 250 / 0.12);
-  --hero-accent-2: oklch(0.55 0.1 180 / 0.08);
-  --hero-line: oklch(0.45 0 0 / 0.08);
-  --hero-dot: oklch(0.45 0 0 / 0.12);
-  --hero-polygon: oklch(0.6 0.15 250 / 0.08);
-  --hero-grid-opacity: 0.06;
-
   --frame-bg: oklch(0.97 0 0);
   --frame-line: oklch(0.5 0 0 / 0.12);
   --frame-dot: oklch(0.3 0 0 / 0.3);
@@ -95,14 +87,6 @@
   --border: oklch(0.2 0 0);
   --overlay: oklch(0 0 0 / 0.3);
   --glow: oklch(0.7 0.1 250 / 0.1);
-
-  --hero-bg: oklch(0.1 0 0);
-  --hero-accent-1: oklch(0.7 0.12 260 / 0.18);
-  --hero-accent-2: oklch(0.65 0.1 180 / 0.12);
-  --hero-line: oklch(0.7 0.1 260 / 0.15);
-  --hero-dot: oklch(0.7 0.1 260 / 0.2);
-  --hero-polygon: oklch(0.7 0.12 260 / 0.12);
-  --hero-grid-opacity: 0.08;
 
   --frame-bg: #000000;
   --frame-line: #969696;
@@ -179,33 +163,4 @@ body {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-@keyframes hero-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
-@keyframes hero-breathe {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-.hero-float-1 {
-  transform-box: fill-box;
-  animation: hero-float 6s ease-in-out infinite;
-}
-
-.hero-float-2 {
-  transform-box: fill-box;
-  animation: hero-float 6s ease-in-out infinite;
-  animation-delay: -3s;
-}
-
-.hero-breathe {
-  animation: hero-breathe 8s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-float-1, .hero-float-2, .hero-breathe {
-    animation: none;
-  }
-}
