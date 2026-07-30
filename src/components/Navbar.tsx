@@ -17,7 +17,7 @@ export default function Navbar() {
           rakyzu
         </a>
 
-        <div className="hidden min-[820px]:flex items-center gap-6 text-sm text-fg-sec">
+        <div className="hidden md:flex items-center gap-3 text-sm text-fg-sec">
           {navKeys.map((key) => (
             <a key={key} href={`#${key}`} className="hover:text-fg transition-colors">
               {t.nav[key]}
@@ -26,7 +26,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="px-2 py-1 rounded text-xs uppercase tracking-wider border border-border hover:bg-bg-elv transition-colors"
+              className="text-xs uppercase tracking-wider hover:text-fg transition-colors cursor-pointer"
             >
               {lang}
             </button>
@@ -49,7 +49,7 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
 
-        <div className="flex min-[820px]:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
           <button onClick={() => setOpen(!open)} aria-label="Menu" className="p-2 text-fg-sec">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -64,7 +64,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="min-[820px]:hidden border-t border-border bg-bg px-4 py-4 space-y-3 text-sm text-fg-sec">
+        <div className="md:hidden border-t border-border bg-bg px-4 py-4 space-y-3 text-sm text-fg-sec">
           {navKeys.map((key) => (
             <a
               key={key}
