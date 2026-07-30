@@ -8,19 +8,24 @@ import ExperienceTimeline from "./ExperienceTimeline";
 import Guestbook from "./Guestbook";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";
+import CookieConsent from "./CookieConsent";
+import TurnstileGate from "./TurnstileGate";
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <Navbar />
-      <Hero />
-      <About />
-      <SkillsSection />
-      <ProjectsSection />
-      <ExperienceTimeline />
-      <Guestbook />
-      <ContactForm />
-      <Footer />
-    </LanguageProvider>
+    <TurnstileGate>
+      <LanguageProvider>
+        <Navbar />
+        <Hero />
+        <About />
+        <SkillsSection />
+        <ProjectsSection />
+        <ExperienceTimeline />
+        <Guestbook />
+        <ContactForm />
+        <Footer />
+        <CookieConsent />
+      </LanguageProvider>
+    </TurnstileGate>
   );
 }
