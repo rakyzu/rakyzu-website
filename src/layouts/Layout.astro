@@ -8,6 +8,7 @@ export interface Props {
 const { title, description = "rakyzu — Developer & Designer Portfolio", ogImage } = Astro.props;
 const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://rakyzu.my.id";
 const ogImg = ogImage ?? `${siteUrl}/assets/og/default.png`;
+const cfAnalyticsToken = import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN;
 ---
 
 <!doctype html>
@@ -46,6 +47,10 @@ const ogImg = ogImage ?? `${siteUrl}/assets/og/default.png`;
         }
       })();
     </script>
+
+    {cfAnalyticsToken && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token": "${cfAnalyticsToken}"}`}></script>
+    )}
   </head>
   <body class="antialiased">
     <slot />

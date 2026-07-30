@@ -22,10 +22,12 @@ export const zh: Translation = {
     p1: "我是一名热衷于构建美观、实用数字产品的开发者和设计师。我专注于现代网页技术，包括 TypeScript、React 和 Node.js，注重高性能和可访问的用户界面。",
     p2: "拥有全栈开发和 UI/UX 设计的经验，我为每个项目带来整体性的方法。我相信编写干净、可维护的代码，并创建让用户愉悦的界面。",
     p3: "当我不编码时，你会看到我探索新的设计趋势、参与开源项目或尝试创意工具。",
+    resume: "下载简历",
   },
   skills: {
     title: "技能",
     subtitle: "我使用的技术",
+    categories: { frontend: "前端", backend: "后端", design: "设计", devops: "运维" },
   },
   projects: {
     title: "项目",
@@ -35,6 +37,8 @@ export const zh: Translation = {
   experience: {
     title: "经历",
     subtitle: "我的工作经历",
+    education: "教育",
+    eduSubtitle: "我的学术历程",
   },
   guestbook: {
     title: "留言板",

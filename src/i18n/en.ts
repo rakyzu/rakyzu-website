@@ -22,10 +22,12 @@ export const en: Translation = {
     p1: "I'm a developer and designer passionate about building beautiful, functional digital products. I specialize in modern web technologies including TypeScript, React, and Node.js, with a focus on performant and accessible user interfaces.",
     p2: "With experience spanning full-stack development and UI/UX design, I bring a holistic approach to every project. I believe in writing clean, maintainable code and creating interfaces that delight users.",
     p3: "When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or experimenting with creative tools.",
+    resume: "Download Resume",
   },
   skills: {
     title: "Skills",
     subtitle: "Technologies I work with",
+    categories: { frontend: "Frontend", backend: "Backend", design: "Design", devops: "DevOps" },
   },
   projects: {
     title: "Projects",
@@ -35,6 +37,8 @@ export const en: Translation = {
   experience: {
     title: "Experience",
     subtitle: "Where I've worked",
+    education: "Education",
+    eduSubtitle: "My academic journey",
   },
   guestbook: {
     title: "Guestbook",

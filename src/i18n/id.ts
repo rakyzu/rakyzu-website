@@ -22,10 +22,12 @@ export const id: Translation = {
     p1: "Saya seorang developer dan desainer yang bersemangat membangun produk digital yang indah dan fungsional. Saya berspesialisasi dalam teknologi web modern termasuk TypeScript, React, dan Node.js, dengan fokus pada antarmuka pengguna yang cepat dan mudah diakses.",
     p2: "Dengan pengalaman di bidang pengembangan full-stack dan desain UI/UX, saya membawa pendekatan holistik ke setiap proyek. Saya percaya pada menulis kode yang bersih dan mudah dipelihara serta menciptakan antarmuka yang memanjakan pengguna.",
     p3: "Saat tidak sedang coding, saya biasanya menjelajahi tren desain baru, berkontribusi ke proyek open-source, atau bereksperimen dengan alat kreatif.",
+    resume: "Unduh CV",
   },
   skills: {
     title: "Keahlian",
     subtitle: "Teknologi yang saya gunakan",
+    categories: { frontend: "Frontend", backend: "Backend", design: "Desain", devops: "DevOps" },
   },
   projects: {
     title: "Proyek",
@@ -35,6 +37,8 @@ export const id: Translation = {
   experience: {
     title: "Pengalaman",
     subtitle: "Tempat saya bekerja",
+    education: "Pendidikan",
+    eduSubtitle: "Perjalanan akademik saya",
   },
   guestbook: {
     title: "Buku Tamu",
