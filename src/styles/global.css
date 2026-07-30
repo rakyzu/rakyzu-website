@@ -26,55 +26,60 @@
   --overlay: oklch(0 0 0 / 0.05);
   --glow: oklch(0.8 0.05 250 / 0.15);
 
-  --frame-bg: oklch(0.97 0 0);
-  --frame-line: oklch(0.5 0 0 / 0.12);
-  --frame-dot: oklch(0.3 0 0 / 0.3);
-  --frame-orange: oklch(0.6 0.15 260 / 0.5);
+  --frame-bg: oklch(0.95 0.025 55);
+  --frame-line: oklch(0.5 0.03 55 / 0.35);
+  --frame-dot: oklch(0.35 0.02 55 / 0.5);
+  --frame-orange: oklch(0.6 0.15 45 / 0.6);
 
-  --fp-s1: oklch(0.72 0.06 260 / 0.22);
-  --fp-s2: oklch(0.67 0.05 260 / 0.17);
-  --fp-s3: oklch(0.62 0.04 260 / 0.12);
-  --fp-s4: oklch(0.57 0.03 260 / 0.08);
+  --fp-s1: oklch(0.7 0.04 50 / 0.4);
+  --fp-s2: oklch(0.65 0.035 50 / 0.35);
+  --fp-s3: oklch(0.6 0.03 50 / 0.28);
+  --fp-s4: oklch(0.55 0.025 50 / 0.22);
 
-  --fp-t1: oklch(0.68 0.04 220 / 0.15);
-  --fp-t2: oklch(0.63 0.03 220 / 0.11);
-  --fp-t3: oklch(0.58 0.02 220 / 0.07);
+  --fp-t1: oklch(0.72 0.03 70 / 0.3);
+  --fp-t2: oklch(0.68 0.025 70 / 0.24);
+  --fp-t3: oklch(0.64 0.02 70 / 0.18);
 
-  --fp-g1: oklch(0.6 0.15 270 / 0.7);
-  --fp-g2: oklch(0.55 0.12 270 / 0.65);
-  --fp-g3: oklch(0.5 0.1 270 / 0.6);
+  --fp-g1: oklch(0.68 0.12 85 / 0.7);
+  --fp-g2: oklch(0.63 0.1 85 / 0.65);
+  --fp-g3: oklch(0.58 0.08 85 / 0.6);
 
-  --fp-gg1: oklch(0.6 0.15 270 / 0.7);
-  --fp-gg2: oklch(0.55 0.12 265 / 0.55);
-  --fp-gg3: oklch(0.48 0.08 260 / 0.35);
-  --fp-gg4: oklch(0.4 0.04 250 / 0.2);
-  --fp-gg5: oklch(0.32 0.02 240 / 0.12);
+  --fp-gg1: oklch(0.68 0.12 85 / 0.7);
+  --fp-gg2: oklch(0.63 0.1 80 / 0.55);
+  --fp-gg3: oklch(0.55 0.06 75 / 0.4);
+  --fp-gg4: oklch(0.48 0.03 70 / 0.25);
+  --fp-gg5: oklch(0.4 0.02 65 / 0.15);
 
-  --fp-w2: oklch(0.55 0.14 275 / 0.65);
-  --fp-w3: oklch(0.5 0.12 280 / 0.6);
+  --fp-w2: oklch(0.63 0.12 80 / 0.65);
+  --fp-w3: oklch(0.58 0.1 75 / 0.6);
 
-  --fp-c1: oklch(0.6 0.15 270 / 0.7);
-  --fp-c2: oklch(0.57 0.13 268 / 0.63);
-  --fp-c3: oklch(0.52 0.1 265 / 0.5);
-  --fp-c4: oklch(0.47 0.07 262 / 0.38);
-  --fp-c5: oklch(0.42 0.05 258 / 0.28);
-  --fp-c6: oklch(0.37 0.03 255 / 0.2);
-  --fp-c7: oklch(0.33 0.02 252 / 0.15);
-  --fp-c8: oklch(0.3 0.015 248 / 0.12);
-  --fp-c9: oklch(0.28 0.01 245 / 0.1);
-  --fp-c10: oklch(0.26 0.005 242 / 0.08);
-  --fp-c11: oklch(0.24 0 240 / 0.06);
+  --fp-c1: oklch(0.68 0.12 85 / 0.7);
+  --fp-c2: oklch(0.66 0.11 84 / 0.63);
+  --fp-c3: oklch(0.61 0.08 82 / 0.5);
+  --fp-c4: oklch(0.56 0.06 80 / 0.38);
+  --fp-c5: oklch(0.51 0.04 78 / 0.28);
+  --fp-c6: oklch(0.46 0.03 75 / 0.2);
+  --fp-c7: oklch(0.42 0.025 72 / 0.15);
+  --fp-c8: oklch(0.38 0.02 70 / 0.12);
+  --fp-c9: oklch(0.35 0.015 68 / 0.1);
+  --fp-c10: oklch(0.33 0.01 65 / 0.08);
+  --fp-c11: oklch(0.31 0.005 62 / 0.06);
 
-  --fp-r1: oklch(0.24 0 240 / 0.06);
-  --fp-r2: oklch(0.25 0.005 242 / 0.08);
-  --fp-r3: oklch(0.28 0.01 245 / 0.1);
-  --fp-r4: oklch(0.32 0.015 248 / 0.14);
-  --fp-r5: oklch(0.36 0.03 252 / 0.2);
-  --fp-r6: oklch(0.42 0.05 255 / 0.28);
-  --fp-r7: oklch(0.48 0.08 258 / 0.38);
-  --fp-r8: oklch(0.54 0.11 262 / 0.5);
-  --fp-r9: oklch(0.58 0.14 265 / 0.63);
-  --fp-r10: oklch(0.6 0.15 270 / 0.7);
+  --fp-r1: oklch(0.31 0.005 62 / 0.06);
+  --fp-r2: oklch(0.32 0.008 64 / 0.08);
+  --fp-r3: oklch(0.34 0.012 66 / 0.1);
+  --fp-r4: oklch(0.36 0.016 68 / 0.14);
+  --fp-r5: oklch(0.4 0.02 70 / 0.2);
+  --fp-r6: oklch(0.46 0.03 72 / 0.28);
+  --fp-r7: oklch(0.52 0.05 75 / 0.38);
+  --fp-r8: oklch(0.58 0.08 78 / 0.5);
+  --fp-r9: oklch(0.63 0.1 82 / 0.63);
+  --fp-r10: oklch(0.68 0.12 85 / 0.7);
+
+  --hero-overlay-t: oklch(0.95 0.025 55 / 0.5);
+  --hero-overlay-b: oklch(0.95 0.025 55 / 0.9);
+  --hero-overlay-t2: oklch(0.95 0.025 55 / 0.9);
+  --hero-overlay-b2: oklch(0.95 0.025 55 / 0.5);
 }
 
 .dark {
@@ -137,6 +142,11 @@
   --fp-r8: #BDA249;
   --fp-r9: #E8C14C;
   --fp-r10: #FFD24D;
+
+  --hero-overlay-t: oklch(0.12 0 0 / 0.8);
+  --hero-overlay-b: oklch(0.12 0 0 / 0.4);
+  --hero-overlay-t2: oklch(0.12 0 0 / 0.4);
+  --hero-overlay-b2: oklch(0.12 0 0 / 0.8);
 }
 
 * { scroll-behavior: smooth; }
@@ -162,5 +172,16 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
+
+.hero-overlay-1 {
+  background: linear-gradient(to top, var(--hero-overlay-t), transparent 60%);
+}
+.hero-overlay-2 {
+  background: linear-gradient(to bottom, var(--hero-overlay-t2), transparent 30%, var(--hero-overlay-b2));
+}
+
+.hero-text-primary { color: var(--fg); }
+.hero-text-secondary { color: var(--fg-secondary); }
+.hero-text-muted { color: var(--fg-muted); }
 
 
