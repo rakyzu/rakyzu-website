@@ -156,7 +156,8 @@
   color: oklch(1 0 0);
 }
 
-html { scroll-padding-top: 4rem; }
+html { scroll-padding-top: 8rem; }
+@media (min-width: 768px) { html { scroll-padding-top: 4rem; } }
 
 body {
   font-family: var(--font-sans);

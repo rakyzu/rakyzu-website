@@ -40,17 +40,16 @@ function LangToggle({ lang, setLang, langOpen, setLangOpen }: {
 
 export default function Navbar() {
   const { t, lang, setLang } = useLang();
-  const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-bg/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="flex min-h-16 flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3 px-[clamp(1rem,4vw,4rem)]">
         <a href="#" className="text-lg font-bold tracking-tight text-fg">
           rakyzu
         </a>
 
-        <div className="hidden md:flex items-center gap-3 text-sm text-fg-sec">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-fg-sec">
           {navKeys.map((key) => (
             <a key={key} href={`#${key}`} className="hover:text-fg transition-colors">
               {t.nav[key]}
@@ -59,36 +58,7 @@ export default function Navbar() {
           <LangToggle lang={lang} setLang={setLang} langOpen={langOpen} setLangOpen={setLangOpen} />
           <ThemeToggle />
         </div>
-
-        <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
-          <LangToggle lang={lang} setLang={setLang} langOpen={langOpen} setLangOpen={setLangOpen} />
-          <button onClick={() => setOpen(!open)} aria-label="Menu" className="p-2 text-fg-sec">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              {open ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
       </div>
-
-      {open && (
-        <div className="md:hidden border-t border-border bg-bg px-4 py-4 space-y-3 text-sm text-fg-sec">
-          {navKeys.map((key) => (
-            <a
-              key={key}
-              href={`#${key}`}
-              onClick={() => setOpen(false)}
-              className="block hover:text-fg transition-colors"
-            >
-              {t.nav[key]}
-            </a>
-          ))}
-        </div>
-      )}
     </nav>
   );
 }
